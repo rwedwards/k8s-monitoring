@@ -1,0 +1,24 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"monitoring.coreos.com/v1","kind":"ServiceMonitor","metadata":{"annotations":{},"labels":{"release":"kube-prom"},"name":"trivy-operator","namespace":"trivy-system"},"spec":{"endpoints":[{"interval":"30s","port":"metrics"}],"namespaceSelector":{"matchNames":["trivy-system"]},"selector":{"matchLabels":{"app.kubernetes.io/name":"trivy-operator"}}}}
+  creationTimestamp: "2025-06-25T10:10:24Z"
+  generation: 1
+  labels:
+    release: kube-prom
+  name: trivy-operator
+  namespace: trivy-system
+  resourceVersion: "198185"
+  uid: c4784846-94ba-44e7-97ed-0cad8e4a1a10
+spec:
+  endpoints:
+  - interval: 30s
+    port: metrics
+  namespaceSelector:
+    matchNames:
+    - trivy-system
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: trivy-operator

@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{"prometheus.io/port":"8080","prometheus.io/scrape":"true"},"labels":{"app.kubernetes.io/name":"trivy-operator"},"name":"trivy-operator-metrics","namespace":"trivy-system"},"spec":{"ports":[{"name":"metrics","port":8080,"targetPort":8080}],"selector":{"app.kubernetes.io/name":"trivy-operator"}}}
+    prometheus.io/port: "8080"
+    prometheus.io/scrape: "true"
+  creationTimestamp: "2025-06-25T10:06:10Z"
+  labels:
+    app.kubernetes.io/name: trivy-operator
+  name: trivy-operator-metrics
+  namespace: trivy-system
+  resourceVersion: "197550"
+  uid: cad3faad-60da-400f-b6ba-20911a538e64
+spec:
+  clusterIP: 10.105.40.248
+  clusterIPs:
+  - 10.105.40.248
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: metrics
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app.kubernetes.io/name: trivy-operator
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
